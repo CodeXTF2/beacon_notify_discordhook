@@ -1,0 +1,17 @@
+
+
+$path_to_py = "/home/codex/alert.py"
+
+on beacon_initial { 
+        $computer = beacon_info($1, "computer");
+        $external = beacon_info($1, "external");
+        $arch = beacon_info($1, "arch");
+        $internal = beacon_info($1, "internal");
+        $user = beacon_info($1, "user");
+        $beacon_text = "New Beacon!\\n\\nUser : $user\\nComputer Name : $computer\\nExternal IP : $external\\nInternal IP : $internal\\nArch : $arch";
+	println("ALERTED THE BOT ABOUT BEACON FROM: ".$computer_name);
+	@curl_command = @('python3',$path_to_py,$beacon_text);
+	exec(@curl_command);
+}
+
+
