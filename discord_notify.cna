@@ -1,6 +1,6 @@
 
 
-$path_to_py = "/home/codex/alert.py"
+$path_to_py = "/home/codex/alert.py";
 
 on beacon_initial { 
         $computer = beacon_info($1, "computer");
